@@ -1,0 +1,141 @@
+* {
+	/*background-image: url(done.jpg);*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: none;
+	padding: none;
+	border: none;
+}
+canvas {
+	/*position: absolute;
+	
+	left: 160px;
+	top: 20px;*/
+   /* background: linear-gradient(0deg, red, blue);*/
+	background-image: url(all.jpg);
+	position: absolute;
+	background-repeat: no-repeat;
+	left:260px;
+    top:20px;
+    /*position: absolute;
+	background: linear-gradient(0deg, #b63bcc 0%, #170716 89%);
+	left: 260px;
+	top: 20px;*/
+}
+
+#container {
+	box-sizing: border-box;
+	display: flex;
+	padding: 10px;
+    position: relative;
+	height: 80px;
+	width: 950px;
+	left: 260px;
+	top: 584px;
+	background: black;
+
+}
+body {
+	position: relative;
+	
+}
+
+/*Basic css for gamecontrols*/
+.control {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	background:black;
+}
+/*Weapon Selector */
+#weapon-selector {
+	font-size: 22px;
+	padding: 13px;
+	border: 5px outset #546e7a;
+	background: #212121;
+	font-weight: bold;
+	font-family: "Lato", sans-serif;
+	color: #bdbdbd;
+}
+
+/* Fire Button*/
+.control #fire-weapon {
+	padding: 2px;
+	background: #212121;
+	border: 4px outset #546e7a;
+	transition: transform 0.1s;
+
+
+}
+.control #fire-weapon:hover {
+	cursor: pointer;
+}
+.control #fire-weapon:active {
+	transform: scale(1.1, 1.1);
+}
+.fire-weapon {
+	font-size: 22px;
+	font-weight: bold;
+	width: 100px;
+	text-align: center;
+	background: linear-gradient(0deg, black, red);
+}
+/* Angle*/
+.control .slidecontainer {
+	height: 70%;
+	width: 80%;
+	padding: 2px;
+	background: #212121;
+	border: 4px outset #546e7a;
+	transition: transform 0.1s;
+	text-align: center;
+}
+.slidecontainer input {
+	margin: 1px 0 0 0;
+}
+.slidecontainer p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	font-family: "Lato", sans-serif;
+	font-size: 16px;
+	background: linear-gradient(0deg, #fae12d 11%, #f40c0c 89%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+/*Power Selector */
+#power-selector {
+	font-size: 22px;
+	padding: 13px;
+	border: 5px outset #546e7a;
+	background: #212121;
+	font-weight: bold;
+	font-family: "Lato", sans-serif;
+	color: #bdbdbd;
+}
+#game-control {
+	box-sizing: border-box;
+	position: relative;
+	width: 400px;
+	font-size: 32px;
+	left:545px;
+	top: 572px;
+	padding: 10px;
+}
+
+#game-control i {
+	padding: 2px;
+	border: 3px ;
+	color: #222831;
+	transition: transform 0.1s;
+	border-radius: 3px;
+}
+#game-control i:hover {
+	color: #dcddd8;
+	background: #d74b4b;
+	cursor: pointer;
+}
+#game-control i:active {
+	transform: scale(1.2, 1.2);
+}

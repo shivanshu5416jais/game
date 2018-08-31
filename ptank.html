@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>POCKET TANKS</title>
+
+	<link rel="stylesheet" type="text/css" href="ptank.css">
+	</head>
+<body>
+
+	<canvas width="950" height="600">
+		</canvas>
+
+<div id="tank1"> <img src="t1.png" style=" position: absolute;  top: 525px;left: 1000px; height: 50px; width: 75px;">
+	<div id="fire"><img src="ft1.png" style="position: relative; top: 525px; left: 1000px; height:10px; width:10px;">
+</div></div>
+<div id="tank2"> <img src="t2.png" style=" position: absolute;  top: 528px;left: 290px; height: 50px; width: 75px;">
+<div id="fire"><img src="ft2.png" style="position: relative; top: 510px; left: 340px; height:10px; width:10px;"></div>
+</div>
+<div id="container">
+	<div class="control" id="weapon">
+		<select id="weapon-selector" onchange="changeWeapon()">
+			<!-- <option value="0">WEAPON</option> --> 
+     			<option value="Weapon1" selected="selected" onchange="changeWeapon()">Weapon1</option>
+     			<option value="Weapon2">Weapon2</option>
+    			<option value="Weapon3">Weapon3</option>
+
+     </select>
+	</div>
+	<div class="control" id="fire">
+		<span id="fire-weapon" >
+			<h1 class="fire-weapon">FIRE</h1>
+ 
+		</span>
+	</div>
+	<div class="control" id="angle">
+		<div class="slidecontainer">
+		 <input type="range" min="0" max="90" value="90" class="slider" id="myRange">
+			<p>Angle:<span id="demo">0</span></p>
+
+		</div>
+	</div>
+	<div class="control" id="speed">
+		<div class="slidecontainer">
+
+			<input type="range" min="0" max="100" value="0" class="slide" id="myRan">
+			<p>Speed:<span id="dem">0</span></p>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var fire = [];
+        document.onkeydown = function(e) {
+            if (e.keyCode === 32) {
+                // Spacebar (fire)
+                fire.push({
+                    left:1000 ,
+                    top: 525 
+                });
+                drawfire()
+
+              function drawfire() {
+             document.getElementById('fire').innerHTML = ""
+             for(var fire = 0 ; fire < fire.length ; fire = fire+1 ) {
+                document.getElementById('fire').innerHTML += `<div class='fire' style='left:${fire[fire].left}px; top:${fire[fire].top}px'></div>`;
+            }
+        }
+        function movefire() {
+            for(var fire = 0 ; fire < fire.length ; i++ ) {
+                fire[fire].top = fire[fire].top - 8
+            }
+        }
+        function gameLoop(){
+        	setTimeout(gameLoop , 100)
+        	movefire();
+        	drawfire()
+        }
+        gameLoop();
+
+        function collisionDetection() {
+            for (var tank2 = 0; tank2 < enemies.length; tank2++) {
+                for (var missile = 0; missile < missiles.length; missile++) {
+                    if ( 
+                        missiles[missile].left >= enemies[tank2].left  &&
+                        missiles[missile].left <= (enemies[tank2].left + 50)  &&
+                        missiles[missile].top <= (enemies[tank2].top + 50)  &&
+                        missiles[missile].top >= enemies[tank2].top
+                    ) {
+                        enemies.splice(tank2, 1);
+                        missiles.splice(missile, 1);
+                    }
+                }
+            }
+        }
+</script>
+</body>
+</html>
